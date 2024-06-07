@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3д-фоны</title>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+<h1>3д-фоны</h1>
+
+<div class="studio">
+    <div class="container d-flex align-items-center flex-column">
+        <label>
+            Текущий фон:
+            <select name="backgrounds" id="backgrounds">
+                <option value="1">Хромакей</option>
+                <option value="2">Цветочный фон</option>
+            </select>
+        </label>
+        <div class="back d-flex">
+            <div class="background onvif position-relative mx-2">
+                <img src="images/green_background.jpg" class="position-relative" alt="">
+                <div class="person-1 person">
+                    <img src="images/person.png" class="position-absolute" alt="Стэтхем">
+                </div>
+                <div class="background-onvif">
+                    <img src="images/onvif-up.png" class="background-onvif-up background-onvif-button position-absolute" alt="">
+                    <img src="images/onvif-left.png" class="background-onvif-left background-onvif-button position-absolute" alt="">
+                    <img src="images/onvif-down.png" class="background-onvif-down background-onvif-button position-absolute" alt="">
+                    <img src="images/onvif-right.png" class="background-onvif-right background-onvif-button position-absolute" alt="">
+                </div>
+            </div>
+            <div class="background obs position-relative">
+                <img src="images/green_background.jpg" class="position-relative" alt="">
+                <div class="person-2 person">
+                    <img src="images/person.png" class="position-absolute" alt="Стэтхем">
+                </div>
+            </div>
+        </div>
+        <div class="studio-control row row-cols-3 g-0">
+            <div class="studio-control-up studio-control-button col-12 d-flex justify-content-center">
+                <img src="images/up.png" alt="Вверх">
+            </div>
+            <div class="studio-control-left studio-control-button col-4">
+                <img src="images/left.png" alt="Вверх">
+            </div>
+            <div class="studio-control-down studio-control-button col-4">
+                <img src="images/down.png" alt="Вверх">
+            </div>
+            <div class="studio-control-right studio-control-button col-4">
+                <img src="images/right.png" alt="Вверх">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="scripts/jquery-3.7.1.slim.min.js"></script>
+<script src="scripts/bootstrap.min.js"></script>
+<script src="scripts/script.js"></script>
+
+</body>
+
+</html>

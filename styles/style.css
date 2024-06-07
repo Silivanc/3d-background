@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+.studio {
+
+}
+
+.background {
+    width: 700px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.background > img {
+    width: 1000px;
+    height: 700px;
+    left: 0;
+    top: 0;
+}
+
+.background-onvif-button {
+    width: 50px;
+    height: 50px;
+    opacity: 0.75;
+}
+
+.background-onvif-up {
+    top: 10px;
+    left: calc(50% - 25px);
+}
+
+.background-onvif-left {
+    left: 10px;
+    top: calc(50% - 25px);
+}
+
+.background-onvif-down {
+    bottom: 10px;
+    left: calc(50% - 25px);
+}
+
+.background-onvif-right {
+    right: 10px;
+    top: calc(50% - 25px);
+}
+
+.person > img {
+    max-height: 300px;
+    bottom: 10px;
+    left: calc(50% - 50px);
+}
+
+.studio-control {
+    width: 192px;
+}
+
+.studio-control-button:hover {
+    opacity: 0.75;
+    cursor: pointer;
+}
+
+.studio-control-button img.down {
+    transform: scale(0.9);
+}
+
+.studio-control-button img.up {
+    transform: scale(1);
+}
