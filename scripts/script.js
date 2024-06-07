@@ -25,13 +25,27 @@ $(document).ready(function () {
     function moveButton(direction, personn = false) {
         const k = (direction === 'up' || direction === 'down') ? 'top' : 'left';
         const t = parseInt(obs.css(k), 10);
-        const offset = (direction === 'up' || direction === 'left') ? -3 : 3;
-        obs.css(k, (t + offset) + 'px');
+        const offset = (direction === 'up' || direction === 'left') ? 3 : -3;
 
         if (personn) {
-            const t = parseInt(person.css(k), 10);
-            person.css(k, (t + offset) + 'px');
+            const p = parseInt(person.css(k), 10);
+
+            if (p <= 0 && direction === 'left')
+                return
+
+            if (p >= 170 && direction === 'up')
+                return
+
+            if (p >= 600 && direction === 'right')
+                return
+
+            if (p <= -20 && direction === 'down')
+                return
+
+            person.css(k, (p + offset) + 'px');
         }
+
+        obs.css(k, (t + offset) + 'px');
     }
 
     function bindMoveButton(element, direction, personn = false) {
@@ -64,9 +78,6 @@ $(document).ready(function () {
     //Смена фона
     $('#backgrounds').change(function () {
         if ($(this).val() === "1") {
-            obs.attr('src', 'images/green_background.jpg')
-        }
-        if ($(this).val() === "2") {
             obs.attr('src', 'images/flower.jpg')
         }
     })
