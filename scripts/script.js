@@ -20,6 +20,9 @@ $(document).ready(function () {
     let onvifLeft = $('.background-onvif-left');
     let onvifDown = $('.background-onvif-down');
     let onvifRight = $('.background-onvif-right');
+    let plus = $('.background-onvif-plus');
+    let minus = $('.background-onvif-minus');
+
     let pressTimer;
 
     function moveButton(direction, personn = false) {
@@ -42,7 +45,10 @@ $(document).ready(function () {
             if (p <= -20 && direction === 'down')
                 return
 
-            person.css(k, (p + offset) + 'px');
+            if (k === 'top')
+                person.css(k, (p + offset) + 'px');
+            else
+                person.css(k, (p + offset) + 'px');
         }
 
         obs.css(k, (t + offset) + 'px');
@@ -64,6 +70,43 @@ $(document).ready(function () {
             .mouseout(() => clearTimeout(pressTimer));
     }
 
+    function zoomButton(element) {
+        const zoom = () => {
+            console.log(person.css('zoom'))
+            const t = parseFloat(person.css('zoom'));
+            const b = parseFloat(person.css('bottom'));
+            const l = parseFloat(obs.css('left'));
+            const offset = (element.is(plus)) ? 0.01 : -0.01;
+
+            if(t >= 1.15 && element.is(plus))
+                return
+
+            if(t <= 0.95 && element.is(minus))
+                return
+
+            console.log(t + offset)
+
+            person.css('zoom', (t + offset));
+            person.css('bottom', (b - offset*350));
+            obs.css('zoom', (t + offset));
+            obs.css('left', (l - offset*325));
+        }
+        console.log(person.css('zoom'))
+        element
+            .click(zoom)
+            .mouseup(() => {
+                clearTimeout(pressTimer);
+                return false;
+            })
+            .mousedown(() => {
+                pressTimer = setInterval(zoom, 100);
+                return false;
+            })
+            .mouseout(() => clearTimeout(pressTimer));
+
+
+    }
+
 // Привязка событий к кнопкам
     bindMoveButton(up, 'up');
     bindMoveButton(left, 'left');
@@ -74,13 +117,20 @@ $(document).ready(function () {
     bindMoveButton(onvifDown, 'down', true);
     bindMoveButton(onvifRight, 'right', true);
 
+    // zoomButton(plus);
+    // zoomButton(minus);
 
     //Смена фона
     $('#backgrounds').change(function () {
         if ($(this).val() === "1") {
             obs.attr('src', 'images/flower.jpg')
         }
+        if ($(this).val() === "2") {
+            obs.attr('src', 'images/eyes.jpg')
+        }
+        if ($(this).val() === "3") {
+            obs.attr('src', 'images/spring.jpg')
+        }
     })
-
 
 })
